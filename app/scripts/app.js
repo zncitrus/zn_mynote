@@ -25,6 +25,10 @@ angular
 		templateUrl:"views/zhuce.html",
       	controller:"zhuce"
 	})
+    .state("ind",{
+		url:"/ind",
+		templateUrl:"views/ind.html"
+    })
    
   	$urlRouterProvider.when('','/denglu');
   }])

@@ -1,5 +1,5 @@
 <div id="logo">
-            <img src="../images/login-logo.png" alt="" />
+            <img src="images/login-logo.png" alt="" />
         </div>
         <div id="loginbox">            
             <form id="loginform" class="form-vertical" action="index.html">
@@ -20,8 +20,12 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <span class="pull-left"><a href="#" class="flip-link btn btn-warning" id="to-recover" ui-sref="zhuce" >Registered</a></span>
-                    <span class="pull-right"><p class="btn btn-success"  ng-click="denglu()" >Login</p></span>
+                	<span class="pull-left">
+                		<input ng-model="abc" ng-checked="abc" style="margin-top: 10px;" type="checkbox">
+						<i style="color:#999">Rem</i>
+					</span>
+                    <span  class="pull-left" style="margin-left:12%;"><p class="btn btn-success"  ng-click="denglu()" >Login</p></span>
+                    <span class="pull-left" style="margin-left:15%;margin-top:7px; color:#999" ui-sref="zhuce">Registered</span>
                 </div>
             </form>
         </div>
