@@ -9,14 +9,15 @@ angular.module('denglu',['ngCookies'])
            method:"POST",
            data:$scope.updata
          }).success(function(e){
-         	$state.go('ind')
+         	//debugger
+         	$state.go('ind',{uid:e.uid})
 					if($scope.abc==true){
 						$cookieStore.put("usernam",$scope.updata);				
 						var expireDate = new Date();
 						expireDate.setDate(expireDate.getDate() + 6);
 						$cookies.put('usernam', $scope.updata, {'expires': expireDate});
 					}
-						debugger
+					
          })
 
       }

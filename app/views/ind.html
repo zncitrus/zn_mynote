@@ -1,1 +1,62 @@
-<p>登陆成功</p>
+<div class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+         <span class="sr-only">Toggle Navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+		<a href="##" class="navbar-brand">Somenote</a>
+	</div>
+	<div class="collapse navbar-collapse navbar-responsive-collapse">
+		<ul class="nav navbar-nav">
+			<li class="active">
+				<a>所有日记</a>
+			</li>
+			<li>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search" ng-model='title'>
+					</div>
+				</form>
+			</li>
+			<li>
+				<a ui-sref="add({uid:zid.uid})">添加</a>
+			</li>
+			<li>
+				<a>标签</a>
+			</li>
+			<li>
+				<a ng-click="exit()">退出</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="panel panel-default" style="background: rgba(255,255,255,0.6);" ng-repeat="x in data | filter:title">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{x.title}} 
+                   <span class="label label-success">标签1</span> 
+                   <span class="label label-success">标签2</span> 
+                   <span class="label label-success">标签3</span></h3>
+	</div>
+	<div class="panel-body">
+		<div style="border-bottom:1px solid #eee;color:#666;margin-bottom:5px">2016-10-11
+			<div style="display: inline-block; float: right;">
+				<span class="glyphicon glyphicon-trash" style="float: right;" ng-click="del(x)"></span>
+				<span class="glyphicon glyphicon-edit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-click="edit(x)" style="float: right;margin-right:15px">
+						</span>
+			</div>
+		</div>{{x.content}}
+	</div>
+</div>
+<ul class="pager" ng-show="ten">
+	<li ng-show="sh">
+		<a ng-click="shang()"><span class="glyphicon glyphicon-arrow-up" style="color: rgb(255, 140, 60);"> 上一页</span></a>
+	</li>
+	<li ng-show="next">
+		<a ng-click="next()"><span class="glyphicon glyphicon-arrow-down" style="color: rgb(144, 189, 223);">下一页</span></a>
+	</li>
+</ul>
+<!--<div href="#list/add" class="affix" style="bottom:5px;width:100%" ui-sref=".add">
+	<div style="background:#999;width:50px;height:50px;color:#fff;margin:0 auto;font-size:33px;line-height:50px;text-align:center;border-radius:25px;box-shadow:0px 0px 5px #337ab7" ng-click="add()">添加</div>
+</div>-->

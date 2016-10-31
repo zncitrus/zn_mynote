@@ -6,6 +6,12 @@
 }
 
 body {
+	width: 100%;
+	background: url(../images/bj.jpg);
+	background-position:center;
+	background-attachment:fixed;
+	background-size: cover;
+	background-repeat:no-repeat;
   padding: 0;
 }
 

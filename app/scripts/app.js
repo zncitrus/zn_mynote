@@ -26,9 +26,19 @@ angular
       	controller:"zhuce"
 	})
     .state("ind",{
-		url:"/ind",
-		templateUrl:"views/ind.html"
+		url:"/ind?uid",
+		templateUrl:"views/ind.html",
+		controller:"ind"
     })
-   
+    .state("add",{
+		url:"/add?uid",
+		templateUrl:"views/add.html",
+		controller:"ind"
+    })
+    .state("edit",{
+		url:"/edit?id&title&content?uid",
+		templateUrl:"views/edit.html",
+		controller:"ind"
+    })
   	$urlRouterProvider.when('','/denglu');
   }])
