@@ -2,7 +2,7 @@ angular.module('zhuce',['ngCookies'])
 .controller("zhuce",["$scope","$http","server","$state",function ($scope,$http,server,$state){
       $scope.zhuce=function(){
          $http({
-           url:server,
+           url:server+"/users",
            method:"post",
            data:$scope.updata
          }).success(function(e){

@@ -5,7 +5,7 @@ angular.module('denglu',['ngCookies'])
 			}
 		$scope.denglu=function(){
       	$http({
-           url:server+"/login",
+           url:server+"/users/login",
            method:"POST",
            data:$scope.updata
          }).success(function(e){

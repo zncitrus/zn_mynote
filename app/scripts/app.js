@@ -10,7 +10,7 @@
  */
 angular
   .module('somenoteApp', ['ngCookies','ui.router','zhuce','denglu'])
-  .constant('server','http://www.somenote.cn:1510/users')
+  .constant('server','http://www.somenote.cn:1510')
   .controller("app",["$scope","$http",function ($scope,$http) {
       
   }]).config(["$stateProvider","$urlRouterProvider",function ($stateProvider,$urlRouterProvider){

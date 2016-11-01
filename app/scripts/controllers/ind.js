@@ -1,4 +1,4 @@
-angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$stateParams', '$cookieStore', function($scope, $http, $state, $stateParams, $cookieStore) {
+angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$stateParams', '$cookieStore','server', function($scope, $http, $state, $stateParams, $cookieStore,server){
 	var num = 0;
 	$scope.zid = $stateParams
 	//返回
@@ -9,7 +9,7 @@ angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$
 	}
 	//查看
 	$http({
-		url: "http://www.somenote.cn:1510/item",
+		url: server+"/item",
 		method: "get",
 		params: {
 			"$skip": num,
@@ -31,7 +31,7 @@ angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$
 	$scope.add = function() {
 		$scope.updata.uid = $scope.zid.uid
 		$http({
-			url: "http://www.somenote.cn:1510/item",
+			url: server+"/item",
 			method: "POST",
 			data: $scope.updata
 		}).success(function(e) {
@@ -44,7 +44,7 @@ angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$
 	//删除
 	$scope.del = function(e) {
 		$http({
-			url: "http://www.somenote.cn:1510/item/" + e.id,
+			url: server+"/item/" + e.id,
 			method: "delete"
 		}).success(function() {
 			$scope.data.splice($scope.data.indexOf(e), 1)
@@ -64,7 +64,7 @@ angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$
 	$scope.save = function() {
 		$scope.jgr.uid = $scope.zid.uid
 		$http({
-			url: "http://www.somenote.cn:1510/item/" + $scope.jgr.id,
+			url: server+"/item/" + $scope.jgr.id,
 			method: "PUT",
 			data: $scope.jgr
 		}).success(function(e) {
@@ -78,7 +78,7 @@ angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$
 		$scope.sh = true
 		num += 10;
 		$http({
-			url: "http://www.somenote.cn:1510/item",
+			url: server+"/item",
 			method: "GET",
 			params: {
 				"$skip": num,
@@ -102,7 +102,7 @@ angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$
 			$scope.sh = false
 		}
 		$http({
-			url: "http://www.somenote.cn:1510/item",
+			url: server+"/item",
 			method: "GET",
 			params: {
 				"$skip": num,
@@ -116,7 +116,7 @@ angular.module('somenoteApp').controller('ind', ['$scope', '$http', '$state', '$
 	//退出登录
 	$scope.exit = function() {
 		$http({
-			url: "http://www.somenote.cn:1510/item",
+			url: server+"/item",
 			method: "POST",
 		}).success(function(e) {
 			$cookieStore.remove("usernam", $scope.updata);
